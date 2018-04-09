@@ -21,9 +21,38 @@ router.get('/', async (ctx) => {
 })
 
 io.on('connection', function (socket) {
-    socket.on('chat message', function (msg) {
-        io.emit('chat message', msg);
+    console.log('a user connected:',socket.id);
+    // 上线
+    socket.on('someone online', (msg, id) => {
+        io.emit('someone online', msg, id);
     });
+    // 离线
+    socket.on('disconnect', function(){
+        console.log('user disconnected:', socket.id);
+        io.emit('someone offline', socket.id);
+    });
+
+    // 正在输入
+    socket.on('user focus', msg => {
+        // io.emit('user focus', msg);
+        socket.broadcast.emit('user focus', msg); // 广播给所有除了自己的客户端
+    });
+    // 输入离开
+    socket.on('user blur', () => {
+        // io.emit('user blur');
+        socket.broadcast.emit('user blur');
+    });
+
+    // 聊天信息
+    socket.on('chat message', function (msg, room) {
+        console.log('msg:', msg, room)
+        io.emit('chat message', msg, room);
+    });
+
+
+    // 指向特殊
+    // sockets.to(socketId).emit()
+    
 });
 
 http.listen(port);
