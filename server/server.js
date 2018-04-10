@@ -8,7 +8,7 @@ const app = new koa();
 const http = require('http').createServer(app.callback());
 const io = require('socket.io')(http);
 
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 8081;
 
 
 let router = new Router();
