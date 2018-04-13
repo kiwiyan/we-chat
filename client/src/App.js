@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Chat from './Chat'
 
 import HelloWorld from './HelloWorld';
 import TodoList from './TodoList';
@@ -16,7 +17,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <HelloWorld name='kiwi~'/>
-
+        <Chat></Chat>
         <TodoList></TodoList>
       </div>
     );

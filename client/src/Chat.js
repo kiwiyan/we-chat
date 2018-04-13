@@ -1,5 +1,5 @@
 import React, {PureComponent } from 'react';
-
+import './Chat.scss'
 import PropTypes from 'prop-types'; 
 
 class TodoList extends PureComponent {
@@ -16,7 +16,7 @@ class TodoList extends PureComponent {
     }
     render() {
         return(
-            <div>some component</div>
+            <div className="test"><div className="t2">some component</div></div>
         )
     }
 }
