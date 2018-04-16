@@ -1,6 +1,21 @@
-.test {
-    .t2 {
-        font-size: 50px;
-        color: #5cc;
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.wrap {
+    width: 960px;
+    margin: 0 auto;
+    header, footer {
+        color: #fff;
+        background: #eee;
+    }
+    .talk-content {
+        height: 300px;
+        border: 1px solid #333;
+        text-align: left;
+    }
+    .send-content {
+        text-align: left;
     }
 }
